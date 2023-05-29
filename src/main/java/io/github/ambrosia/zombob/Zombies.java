@@ -1,6 +1,7 @@
 package io.github.ambrosia.zombob;
 
 public class Zombies {
+	// Randomly creates either a zombie, strongzombie, or fastzombie
 	public static Zombie createZombie() {
 		int a = Game.rand.nextInt(10);
 		

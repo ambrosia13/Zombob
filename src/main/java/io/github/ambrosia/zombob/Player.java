@@ -12,8 +12,10 @@ public class Player implements Displayable {
 	public double defense;
 	public int speed;
 	
+	// player inventory
 	public ArrayList<Supply> inventory;
 	
+	// Constructor for player
 	public Player(String name) {
 		this.name = name;
 		
@@ -25,10 +27,6 @@ public class Player implements Displayable {
 		speed = 1;
 		
 		inventory = new ArrayList<>();
-	}
-	
-	public void attack() {
-		
 	}
 	
 	public void collectSupply() {
@@ -50,15 +48,11 @@ public class Player implements Displayable {
 	public boolean tryAttackZombie(int times, Zombie zombie) {
 		if(times == 1) {
 			zombie.health -= this.attack;
-			this.health -= zombie.attack;;
+			this.health -= zombie.attack;
 			return false;
 		} else {
 			return tryAttackZombie(++times, zombie);
 		}
 	}
 	
-	@Override
-	public char display() {
-		return 'P';
-	}
 }

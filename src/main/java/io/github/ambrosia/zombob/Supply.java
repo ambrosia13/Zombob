@@ -3,9 +3,9 @@ package io.github.ambrosia.zombob;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Vector;
 
 public class Supply implements Displayable {
+	// A list of predefined supplies
 	private static final List<Supply> supplies = new ArrayList<>(Arrays.asList(
 		new Supply("Healing potion", Type.HEAL),
 		new Supply("Attack potion", Type.ATTACK),
@@ -13,10 +13,12 @@ public class Supply implements Displayable {
 		new Supply("Strength potion", Type.ATTACK)
 	));
 	
+	// Returns a random supply from the list
 	public static Supply getSupply() {
 		return supplies.get(Game.rand.nextInt(supplies.size()));
 	}
 	
+	// Each type of supply attack or heal
 	private enum Type {
 		HEAL, ATTACK
 	}
@@ -28,6 +30,7 @@ public class Supply implements Displayable {
 		this.type = type;
 	}
 	
+	// Use the supply on the player
 	public void act(Player player) {
 		System.out.println("Supply " + name + " was just used.");
 		
@@ -38,8 +41,4 @@ public class Supply implements Displayable {
 		}
 	}
 	
-	@Override
-	public char display() {
-		return 'S';
-	}
 }
