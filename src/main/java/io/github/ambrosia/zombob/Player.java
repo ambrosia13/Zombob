@@ -2,7 +2,7 @@ package io.github.ambrosia.zombob;
 
 import java.util.ArrayList;
 
-public class Player {
+public class Player implements Displayable {
 	public final String name;
 	
 	public int maxHealth;
@@ -44,5 +44,21 @@ public class Player {
 			return;
 		}
 		inventory.remove(Game.rand.nextInt(inventory.size())).act(this);
+	}
+	
+	// Recursive function to attack a zombie
+	public boolean tryAttackZombie(int times, Zombie zombie) {
+		if(times == 1) {
+			zombie.health -= this.attack;
+			this.health -= zombie.attack;;
+			return false;
+		} else {
+			return tryAttackZombie(++times, zombie);
+		}
+	}
+	
+	@Override
+	public char display() {
+		return 'P';
 	}
 }

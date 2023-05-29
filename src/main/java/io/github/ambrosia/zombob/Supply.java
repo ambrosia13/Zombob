@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
-public class Supply {
+public class Supply implements Displayable {
 	private static final List<Supply> supplies = new ArrayList<>(Arrays.asList(
 		new Supply("Healing potion", Type.HEAL),
 		new Supply("Attack potion", Type.ATTACK),
@@ -36,5 +36,10 @@ public class Supply {
 		} else if(player.health <= player.maxHealth) {
 			player.health += 4;
 		}
+	}
+	
+	@Override
+	public char display() {
+		return 'S';
 	}
 }

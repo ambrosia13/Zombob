@@ -1,6 +1,6 @@
 package io.github.ambrosia.zombob;
 
-public class Zombie {
+public class Zombie implements Displayable {
 	public int type;
 	public int behavior;
 	
@@ -16,5 +16,10 @@ public class Zombie {
 	
 	public void speak() {
 		System.out.println("Zombie says bluhughdfhhj");
+	}
+	
+	@Override
+	public char display() {
+		return 'Z';
 	}
 }
