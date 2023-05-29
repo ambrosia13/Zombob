@@ -32,9 +32,9 @@ public class Supply implements Displayable {
 		System.out.println("Supply " + name + " was just used.");
 		
 		if(type == Type.ATTACK) {
-			player.attack += 1;
+			player.attack += 2;
 		} else if(player.health <= player.maxHealth) {
-			player.health += 4;
+			player.health += 16;
 		}
 	}
 	
